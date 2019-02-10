@@ -8,4 +8,4 @@ That will at least give you the same awesomewm as me, but things like my termina
 
 For the top bar to work you will need to install fttf-font-awesome package from AUR.
 
-![just a scrot][scrot.png]
+![just a scrot][./scrot.png]
