@@ -9,7 +9,7 @@
     width: 350px;
     selected-normal-foreground:  rgba ( 232, 234, 246, 100 % );
     foreground:                  rgba ( 127, 127, 127, 100 % );
-    normal-foreground:           rgba ( 67, 67, 67, 100 % );
+    normal-foreground:           #77b6c5;
     alternate-normal-background: rgba ( 43, 66, 185, 100 % );
     red:                         rgba ( 220, 50, 47, 100 % );
     selected-urgent-foreground:  rgba ( 183, 28, 28, 100 % );
@@ -20,13 +20,13 @@
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     selected-active-foreground:  rgba ( 0, 96, 100, 100 % );
     alternate-active-background: rgba ( 43, 66, 185, 100 % ); 
-    background:                  rgba ( 127, 127, 127, 100 % );
-    bordercolor:                 rgba ( 232, 234, 246, 100 % );
+    background:                  rgba ( 119, 182, 197, 55 % );
+    bordercolor:                 rgba ( 232, 234, 246, 0 % );
     alternate-normal-foreground: rgba ( 67, 67, 67, 100 % );
-    normal-background:           rgba ( 43, 66, 185, 100 % );
+    normal-background:           rgba ( 119, 182, 197, 55 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 43, 66, 185, 100 % ); 
-    border-color:                rgba ( 67, 67, 67, 100 % );
+    selected-normal-background:  rgba ( 119, 182, 197, 55 % );
+    border-color:                rgba ( 119, 182, 197, 55 % );
     spacing:                     2;
     separatorcolor:              rgba ( 232, 234, 246, 100 % );
     urgent-background:           rgba ( 43, 66, 185, 100 % );
@@ -39,13 +39,13 @@
 }
 #window {
     background-color: @background;
-    border:           2;
-    padding:          5;
+    border:           0;
+    padding:          15;
 }
 #mainbox {
-    border:  2;
-    border-color: rgba ( 67, 67, 67, 100 % );
-    bordercolor: rgba ( 67, 67, 67, 100 % );
+    border:  0;
+    border-color: rgba ( 67, 67, 67, 55 % );
+    bordercolor: rgba ( 67, 67, 67, 55 % );
     padding: 0;
 }
 #message {
@@ -58,11 +58,11 @@
 }
 #listview {
     fixed-height: 0;
-    border:       2px 0px 0px ;
+    border:       0px 0px 0px ;
     border-color: @separatorcolor;
     spacing:      2px ;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      0px 0px 0px ;
 }
 #element {
     border:  0;

@@ -97,7 +97,8 @@ theme.cal = lain.widget.cal({
     notification_preset = {
         font = "Misc Tamsyn 11",
         fg   = white,
-        bg   = theme.bg_normal
+        bg   = theme.bg_normal,
+        width = 300
     }
 })
 

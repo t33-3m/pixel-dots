@@ -2,6 +2,7 @@
 
      Dremora Awesome WM theme 2.0
      github.com/lcpz
+     modified by t33-3m
 
 --]]
 
@@ -15,11 +16,11 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/dremora"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
+theme.wallpaper                                 = theme.dir .. "/wall.jpg"
 theme.font                                      = "Roboto Mono 13"
 theme.taglist_font                              = "Font Awesome 5 Free 12"
 theme.fg_normal                                 = "#747474"
-theme.fg_focus                                  = "#DDDCFF"
+theme.fg_focus                                  = "#747474"
 theme.bg_normal                                 = "#121212"
 theme.bg_focus                                  = "#121212"
 theme.fg_urgent                                 = "#CC9393"
@@ -28,8 +29,8 @@ theme.border_width                              = "0"
 theme.border_normal                             = "#121212"
 theme.border_focus                              = "#292929"
 theme.titlebar_bg_focus                         = "#292929"
-theme.taglist_fg_focus                          = "#8fa1b3"
-theme.taglist_bg_focus                          = "#121212"
+theme.taglist_fg_focus                          = "#a3be8c"
+theme.taglist_bg_focus                          = "#2b303b"
 theme.menu_height                               = 24
 theme.menu_width                                = 200
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -70,7 +71,7 @@ theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
-awful.util.tagnames   = { "", "", "", "", "" }
+awful.util.tagnames   = { "一", "二", "三", "四", "五" }
 
 local markup     = lain.util.markup
 local separators = lain.util.separators
@@ -164,7 +165,7 @@ local bat = lain.widget.bat({
         elseif bat_now.perc >=80 then
             bat_header = ""
         end
-        bat_p      = bat_now.perc .. " "
+        bat_p      = bat_now.perc .. "% "
         widget:set_markup(markup.font(theme.font, markup(white, bat_p)) .. markup.font(theme.taglist_font, markup(gray, bat_header)))
     end
 })
@@ -173,7 +174,7 @@ local bat = lain.widget.bat({
 theme.volume = lain.widget.alsa({
     --togglechannel = "IEC958,3",
     settings = function()
-        header = " Vol "
+        header = ""
         vlevel  = volume_now.level
 
         if volume_now.status == "off" then
@@ -181,8 +182,8 @@ theme.volume = lain.widget.alsa({
         else
             vlevel = vlevel .. " "
         end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, header) .. markup(white, vlevel)))
+        vlevel = " " .. vlevel
+        widget:set_markup(markup.font(theme.font, markup(white, vlevel)) .. (markup.font(theme.taglist_font, markup(gray, header))))
     end
 })
 

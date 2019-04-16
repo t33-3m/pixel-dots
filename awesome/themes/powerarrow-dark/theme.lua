@@ -223,6 +223,16 @@ local bat = lain.widget.bat({
     end
 })
 
+--  Window border
+client.connect_signal("focus", function(c)
+                         c.border_color = theme.fg_focus
+
+end)
+client.connect_signal("unfocus", function(c)
+                         c.border_color = theme.bg_normal
+end)
+-- 
+
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({

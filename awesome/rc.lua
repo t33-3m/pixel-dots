@@ -47,6 +47,9 @@ do
 end
 -- }}}
 
+-- A simple function to turn lua execute into a calculator
+prt = function(...) naughty.notify{text=table.concat({...}, '\t')} end
+
 -- {{{ Autostart windowless processes
 
 -- This function will run once every time Awesome is started
@@ -187,6 +190,7 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "dremora"))
 --beautiful.font = "Roboto 10"
+beautiful.useless_gap = 1
 -- }}}
 
 -- {{{ Menu
@@ -262,10 +266,10 @@ globalkeys = my_table.join(
               {description = "go back", group = "tag"}),
 
     -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-              {description = "view  previous nonempty", group = "tag"}),
+    -- awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
+    --           {description = "view  previous nonempty", group = "tag"}),
+    -- awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
+    --           {description = "view  previous nonempty", group = "tag"}),
 
     -- Default client focus
     awful.key({ altkey,           }, "j",
@@ -320,7 +324,7 @@ globalkeys = my_table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ modkey,           }, "c",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -340,7 +344,7 @@ globalkeys = my_table.join(
         end,
         {description = "toggle wibox", group = "awesome"}),
 
-    -- On the fly useless gaps change
+        -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,

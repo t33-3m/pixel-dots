@@ -4,6 +4,8 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+vmap <leader>y :w! /tmp/vitmp<CR>
+nmap <leader>p :r! cat /tmp/vitmp<CR>
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -23,11 +25,22 @@ Plugin 'VundleVim/Vundle.vim'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'plasticboy/vim-markdown'
-Plugin 'valloric/youcompleteme'
-Plugin 'junegunn/fzf.vim'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'valloric/youcompleteme'
+" Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-pencil' " Super-powered writing things
+Plugin 'tpope/vim-abolish' " Fancy abbreviation replacements
+Plugin 'junegunn/limelight.vim' " Highlights only active paragraph
+Plugin 'reedes/vim-lexical' " Better spellcheck mappings
+Plugin 'reedes/vim-litecorrect' " Better autocorrections
+Plugin 'reedes/vim-textobj-sentence' " Treat sentences as text objects
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'fatih/vim-go'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -57,7 +70,21 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 
-:set number 
+function! TM()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse-=a
+    else
+        " enable mouse everywhere
+        set mouse=a
+    endif
+endfunc
+
+nnoremap <C-t> call TM()
+
+
+set number 
 syntax on
 set wildmenu
 set hlsearch

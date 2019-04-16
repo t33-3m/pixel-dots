@@ -52,9 +52,14 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
 alias fdisk="sudo fdisk"
 mcc() {
-	markdown $1 > .out.html && firefox ./.out.html
+	markdown $1 > out.html
+}
+
+pclip() {
+    gopass show --clip $1
 }
 
 ## alias for when I fuck up my sudo commands
@@ -71,6 +76,18 @@ lock () {
 	sudo umount /media/disk
 	sudo cryptsetup luksClose LUKS001
 }
+
+# always spawn oni as a background process - and rename it to code
+onicode () {
+    oni $1 &!
+}
+
+# for Mac style open command:
+alias open='xdg-open'
+
+# a helper for changing redshift
+alias nmode='redshift -P -O 4200'
+alias dmode='redshift -P -O 6500'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

@@ -1,5 +1,5 @@
 # pixel-dots
-This is my first awesomewm rice, here you should be able to easily clone the repo and run the followin commands:
+This is my first awesomewm rice, here you should be able to easily clone the repo and run the following commands:
 
 ```cd pixel-dots```
 ```cp -ar awesome ~/.config/```
